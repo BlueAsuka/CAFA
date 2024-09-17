@@ -1,0 +1,9 @@
+openai>1.0
+pydantic
+gurobipy
+ortools
+tqdm
+colorama
+llama-index-core 
+llama-index 
+llama-index-llms-lmstudio
