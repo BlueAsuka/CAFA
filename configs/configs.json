@@ -1,0 +1,12 @@
+{
+    "GPT_MODEL": "gpt-4o-mini",
+    "MAX_TOKENS": 4096,
+    "TEMPERATURE": 0.7,
+
+    "DEMO_SAMPLES": 20,
+    "TRAIN_RATIO": 0.6,
+    "DEV_RATIO": 0.1,
+    "TEST_RATIO": 0.3,
+
+    "ERROR_THRESHOLD": 1
+}

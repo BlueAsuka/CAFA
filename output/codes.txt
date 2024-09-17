@@ -1,0 +1,332 @@
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP') 
+if not solver:
+    raise
+x = solver.NumVar(0, solver.infinity(), 'x')
+y = solver.NumVar(0, solver.infinity(), 'y')
+solver.Add(46 * x + 13 * y <= 1345)
+solver.Add(43 * x + 4 * y <= 346)
+solver.Add(56 * x + 45 * y <= 1643)
+objective = solver.Objective()
+objective.SetCoefficient(x, 10.0)
+objective.SetCoefficient(y, 15.0)
+objective.SetMaximization()
+status = solver.Solve()
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP') 
+if not solver:
+    raise
+x = solver.NumVar(5, solver.infinity(), 'x')  # Minimum of 5 acres of apples
+
+y = solver.NumVar(10, solver.infinity(), 'y') # Minimum of 10 acres of pears
+
+solver.Add(x + y <= 50)                # Total land constraint
+solver.Add(y >= 2 * x)                 # Pears should be at least twice as apples
+
+objective = solver.Objective()
+objective.SetCoefficient(x, 2.0)         # Profit from apples
+objective.SetCoefficient(y, 4.0)         # Profit from pears
+objective.SetMaximization()
+status = solver.Solve()
+
+if status == pywraplp.Solver.OPTIMAL:
+    maximum_profit = objective.Value()
+else:
+    maximum_profit = 0
+    
+maximum_profit
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP') 
+if not solver:
+    raise
+# Define variables
+small = solver.NumVar(0, solver.infinity(), 'small')
+large = solver.NumVar(0, solver.infinity(), 'large')
+# Constraints
+solver.Add(10 * small + 20 * large <= 500)  # Water constraint
+solver.Add(15 * small + 20 * large <= 700)  # Powdered pill constraint
+# Objective
+objective = solver.Objective()
+objective.SetCoefficient(small, 20.0)  # Each small container produces 20 units of paste
+objective.SetCoefficient(large, 30.0)  # Each large container produces 30 units of paste
+objective.SetMaximization()
+# Solve
+status = solver.Solve()
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP')
+if not solver:
+    raise
+x1 = solver.NumVar(0, solver.infinity(), 'x1')  # number of light oil tanks
+x2 = solver.NumVar(0, solver.infinity(), 'x2')  # number of non-sticky oil tanks
+x3 = solver.NumVar(0, solver.infinity(), 'x3')  # number of heavy oil tanks
+solver.Maximize(550 * x1 + 750 * x2 + 950 * x3)
+solver.Add(3 * x1 + 6 * x2 + 9 * x3 <= 250)  # constraint for compound A
+solver.Add(3 * x1 + 2 * x2 + 3 * x3 <= 150)  # constraint for compound B
+status = solver.Solve()
+from ortools.linear_solver import pywraplp
+
+solver = pywraplp.Solver.CreateSolver('GLOP') 
+if not solver:
+    raise
+
+x = solver.NumVar(0, solver.infinity(), 'x')  # Batches of hams
+
+y = solver.NumVar(0, solver.infinity(), 'y')  # Batches of pork ribs
+
+# Constraints
+solver.Add(4 * x + 2 * y <= 4000)  # Meat slicer hours
+solver.Add(2.5 * x + 3.5 * y <= 4000)  # Meat packer hours
+
+# Objective function
+objective = solver.Objective()
+objective.SetCoefficient(x, 150.0)  # Profit from hams
+objective.SetCoefficient(y, 300.0)  # Profit from pork ribs
+objective.SetMaximization()
+
+status = solver.Solve()
+
+# The maximum profit can be printed as follows:
+max_profit = objective.Value()
+print('Maximum profit:', max_profit)
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP') 
+if not solver:
+    raise
+x = solver.NumVar(0, 100, 'x')  # Area allocated for phones
+
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP')
+if not solver:
+    raise
+
+# Variables
+esc = solver.NumVar(0, solver.infinity(), 'esc')  # Escalators
+ell = solver.NumVar(2, solver.infinity(), 'ell')   # Elevators (at least 2)
+
+# Constraints
+solver.Add(20 * esc + 8 * ell >= 400)  # Capacity constraint
+solver.Add(esc >= 3 * ell)               # More escalators than elevators
+
+# Objective function to minimize space
+objective = solver.Objective()
+objective.SetCoefficient(esc, 5.0)  # Space taken by escalators
+objective.SetCoefficient(ell, 2.0)  # Space taken by elevators
+objective.SetMinimization()
+
+status = solver.Solve()
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP') 
+if not solver:
+    raise
+
+d = solver.NumVar(0, solver.infinity(), 'd')  # number of desks
+r = solver.NumVar(0, solver.infinity(), 'r')  # number of drawers
+
+# Constraints
+solver.Add(40 * d + 30 * r <= 4000)  # assembly time constraint
+solver.Add(20 * d + 10 * r <= 3500)  # sanding time constraint
+
+# Objective function
+objective = solver.Objective()
+objective.SetCoefficient(d, 100.0)  # profit from desks
+objective.SetCoefficient(r, 90.0)   # profit from drawers
+objective.SetMaximization()
+
+# Solve the problem
+status = solver.Solve()
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP') 
+if not solver:
+    raise
+x = solver.NumVar(0, solver.infinity(), 'x')
+y = solver.NumVar(0, solver.infinity(), 'y')
+solver.Add(3 * x + 5 * y <= 300)
+solver.Add(5 * x + 8 * y <= 300)
+objective = solver.Objective()
+objective.SetCoefficient(x, 8.0)
+objective.SetCoefficient(y, 10.0)
+objective.SetMaximization()
+status = solver.Solve() 
+max_profit = objective.Value()
+max_profit
+x_solution = x.solution_value()
+y_solution = y.solution_value()
+(x_solution, y_solution, max_profit)
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP') 
+if not solver:
+    raise
+v = solver.NumVar(10, solver.infinity(), 'v')  # vintage bottles
+r = solver.NumVar(0, solver.infinity(), 'r')   # regular bottles
+solver.Add(500 * v + 750 * r <= 100000)  # total volume constraint
+solver.Add(r >= 4 * v)  # regular to vintage ratio constraint
+solver.Add(v >= 10)  # minimum vintage bottles constraint
+objective = solver.Objective()
+objective.SetCoefficient(v, 1.0)
+objective.SetCoefficient(r, 1.0)
+objective.SetMaximization()
+status = solver.Solve() 
+if status == pywraplp.Solver.OPTIMAL:
+    print('Number of vintage bottles:', v.solution_value())
+    print('Number of regular bottles:', r.solution_value())
+else:
+    print('The problem does not have an optimal solution.')
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP') 
+if not solver:
+    raise
+
+s = solver.NumVar(0, 80, 's')  # Small bouquets
+l = solver.NumVar(20, 50, 'l')  # Large bouquets, starting from at least 20
+
+# Constraints
+solver.Add(s + l <= 70)  # Total bouquets constraint
+solver.Add(s <= 80)  # Max small bouquets constraint
+solver.Add(l <= 50)  # Max large bouquets constraint
+solver.Add(s >= 2 * l)  # At least twice as many small bouquets as large bouquets
+
+# Objective function
+objective = solver.Objective()
+objective.SetCoefficient(s, 5.0)  # 5 flowers per small bouquet
+objective.SetCoefficient(l, 10.0)  # 10 flowers per large bouquet
+objective.SetMaximization()
+
+# Solve the problem
+status = solver.Solve()
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP') 
+if not solver:
+    raise
+x = solver.NumVar(15, 40, 'x')  # Radio ads (between 15 and 40)
+y = solver.NumVar(35, solver.infinity(), 'y')  # Social media ads (at least 35)
+
+# Budget constraint: 5000x + 9150y ≤ 250000
+solver.Add(5000 * x + 9150 * y <= 250000)
+
+# Objective: Maximize exposure: 60500x + 50000y
+objective = solver.Objective()
+objective.SetCoefficient(x, 60500.0)
+objective.SetCoefficient(y, 50000.0)
+objective.SetMaximization()
+
+status = solver.Solve()
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP')
+if not solver:
+    raise
+x = solver.NumVar(0, solver.infinity(), 'x')  # Top-loading machines
+ y = solver.NumVar(0, solver.infinity(), 'y')  # Front-loading machines
+
+# Constraints
+solver.Add(50 * x + 75 * y >= 5000)  # Minimum items washed
+solver.Add(85 * x + 100 * y <= 7000)  # Maximum kWh consumed
+solver.Add(x <= 0.4 * (x + y))  # At most 40% can be top-loading
+solver.Add(y >= 10)  # At least 10 front-loading machines
+
+# Objective
+solver.Minimize(x + y)
+
+# Solve the problem
+status = solver.Solve()
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP') 
+if not solver:
+    raise
+x = solver.NumVar(0, solver.infinity(), 'x')
+y = solver.NumVar(20, solver.infinity(), 'y') # y must be at least 20
+solver.Add(4 * x + 1.5 * y <= 110)
+solver.Add(x == 2 * y) # double the large bags than tiny bags
+objective = solver.Objective()
+objective.SetCoefficient(x, 25.0) # weight from large bags
+objective.SetCoefficient(y, 6.0)  # weight from tiny bags
+objective.SetMaximization()
+status = solver.Solve()
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP')
+if not solver:
+    raise
+
+# Decision variables
+x1 = solver.NumVar(0, solver.infinity(), 'x1')  # hours for factory 1
+x2 = solver.NumVar(0, solver.infinity(), 'x2')  # hours for factory 2
+
+# Objective function: minimize cost
+objective = solver.Objective()
+objective.SetCoefficient(x1, 300)
+objective.SetCoefficient(x2, 600)
+objective.SetMinimization()
+
+# Constraints
+solver.Add(5 * x1 + 10 * x2 >= 20)  # black bears
+solver.Add(6 * x1 + 10 * x2 >= 5)   # white bears
+solver.Add(3 * x1 >= 15)             # brown bears
+
+# Solve the problem
+status = solver.Solve()
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP')
+if not solver:
+    raise
+x = solver.NumVar(0, solver.infinity(), 'x')
+y = solver.NumVar(0, solver.infinity(), 'y')
+solver.Add(0.8 * x + 0.1 * y <= 80)
+solver.Add(0.2 * x + 0.9 * y <= 60)
+objective = solver.Objective()
+objective.SetCoefficient(x, 3.0)
+objective.SetCoefficient(y, 5.0)
+objective.SetMaximization()
+status = solver.Solve()
+
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP') 
+if not solver:
+    raise
+x = solver.NumVar(0, solver.infinity(), 'x') # number of batches of bagels
+
+
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP') 
+if not solver:
+    raise
+A = solver.NumVar(0, solver.infinity(), 'A')  # Number of adult vaccines
+C = solver.NumVar(0, solver.infinity(), 'C')  # Number of children's vaccines
+
+# Constraints
+solver.Add(50 * C + 75 * A <= 20000)  # mRNA constraint
+solver.Add(C >= 50)  # minimum children's vaccines
+solver.Add(C <= (3/7) * A)  # at least 70% adult vaccines
+
+# Objective function
+objective = solver.Objective()
+objective.SetCoefficient(C, 50.0)
+objective.SetCoefficient(A, 75.0)
+objective.SetMinimization()
+
+# Solve the problem
+status = solver.Solve()
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP')
+if not solver:
+    raise
+small_buses = solver.NumVar(0, solver.infinity(), 'small_buses')
+large_buses = solver.NumVar(0, solver.infinity(), 'large_buses')
+solver.Add(20 * small_buses + 50 * large_buses >= 500)
+solver.Add(large_buses <= 0.2 * (small_buses + large_buses))
+objective = solver.Objective()
+objective.SetCoefficient(small_buses, 1.0)
+objective.SetCoefficient(large_buses, 1.0)
+objective.SetMinimization()
+status = solver.Solve()
+from ortools.linear_solver import pywraplp
+solver = pywraplp.Solver.CreateSolver('GLOP')
+if not solver:
+    raise
+x = solver.NumVar(0, solver.infinity(), 'x')
+y = solver.NumVar(0, solver.infinity(), 'y')
+solver.Add(3 * x + 6 * y >= 40)  # Sleep inducing medicine constraint
+solver.Add(5 * x + 1 * y >= 50)  # Anti-inflammatory medicine constraint
+objective = solver.Objective()
+objective.SetCoefficient(x, 4.0)  # Cost for pill A
+objective.SetCoefficient(y, 5.0)  # Cost for pill B
+objective.SetMinimization()
+status = solver.Solve()
