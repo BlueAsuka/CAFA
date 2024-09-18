@@ -1,3 +1,4 @@
+import re
 import json
 import loguru
 import random
@@ -53,3 +54,63 @@ def save_test_questions_and_answers(questions: List[str], answers: List[str], fi
     with open(file_path, 'w') as f:
         for q, a in zip(questions, answers):
             f.write(f"{q} @ {a}\n")
+            
+prefix = """
+import gurobipy as gp
+env = gp.Env(empty=True)
+env.setParam("OutputFlag",0)
+env.start()
+m = gp.Model(env=env)
+"""
+                
+suffix = """
+m.optimize()
+"""
+
+def complement_code(code: str) -> float:
+    return prefix + code + suffix
+
+def clean_code(code: str) -> str:
+    cleand_code = []
+    for line in code.split('\n'):
+        line = line.strip()
+        if line.startswith('m.addConstr') and not re.findall(r'<=|>=', line):
+            line = re.sub(r'<', r'<=', line)
+            line = re.sub(r'>', r'>=', line)
+        cleand_code.append(line)
+    return '\n'.join(cleand_code)
+
+def execute_code(code: str) -> float:
+    ex_locals = {}
+    exec(code, None, ex_locals)
+    
+    try:
+        return ex_locals["m"].objVal
+    except Exception as e:
+        # print(e)
+        return np.inf
+
+def get_pred_answers(codes: List[str]) -> List[str]:
+    pred_answers = []
+    for i, code_str in enumerate(codes):
+        try:
+            cleaned_code = clean_code(code_str)
+            code = complement_code(cleaned_code)
+            ans = execute_code(code)
+            loguru.logger.info(f"question {i} obtain answer")
+            pred_answers.append(ans)
+        except Exception as e:
+            loguru.logger.error(f"Error for question {i}: {e}")
+            pred_answers.append("Error")
+    return pred_answers
+
+def mark(pred, real, error: float) -> List[bool]:    
+    correct = []
+    for p, r in zip(pred, real):
+        if p == 'Error':
+            continue
+        if (float(p) == np.inf and float(r) == np.inf) or (abs(float(p) - float(r)) / float(r) < error):
+            correct.append(True)
+        else:
+            correct.append(False)
+    return correct
