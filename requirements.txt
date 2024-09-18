@@ -2,8 +2,12 @@ openai>1.0
 pydantic
 gurobipy
 ortools
-tqdm
 colorama
-llama-index-core 
+pytorch==2.0.1
+pytorch-cuda==11.8
+pyproject-toml
 llama-index 
+llama-index-core 
 llama-index-llms-lmstudio
+lmformatenforcer
+tqdm
