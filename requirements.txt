@@ -11,3 +11,4 @@ llama-index-core
 llama-index-llms-lmstudio
 lmformatenforcer
 tqdm
+loguru
