@@ -1,5 +1,6 @@
 # CAFA
 
+## Introduction
 The code for the Neurips 2024 MATH-AI workshop paper
 
 [Code as Auto-Formulation can boost large language model in solving linear problem](https://openreview.net/forum?id=xC2xtBLmri)
@@ -8,17 +9,34 @@ This paper proposed a compact prompting for large language models to solve linea
 
 The results show that our method can solve the linear programming problems with a comparable accuracy to many multi-agent frameworks such as [Chain-of-Experts](https://openreview.net/pdf?id=HobyL1B9CZ) and [OptiMUS](https://arxiv.org/abs/2310.06116). Interestingly, this CAFA can enable opensource small language models like Llama3.1-8B-Q8 and DeepSeek-Coder-14B-Q4 achieve a significant performance boost in solving linear programming problems compared to that without CAFA.
 
-The following tables shows the accuracy of different methods with various LLMs on the NL4Opt dataset
+The following tables shows the accuracy of different methods with various LLMs on the NL4Opt dataset. (The results of CoE and the OptiMUS are from the original papers)
 
 | Model |standard | Chain-of-Experts | OptiMUS | CAFA |
 | --- | --- | --- | --- | --- |
 |GPT-4 | 47.3% | 64.2% | 78.7% | 70.1% |
 |GPT-3.5-Turbo| 42.4% | 58.9% | __ | 59.0% |
 | Llama3.1-8B-Q8 | 5.2% | __ | __ | 34.1% |
-| DeepSeek-Coder-14B-Q4 | 5.5% | __ | __ | 60.1%|
-
+| DeepSeek-Coder-16B-Q4 | 5.5% | __ | __ | 60.1%|
 
 Thus, CAFA is a prompting stradgy for improving LLMs in different sizes to solve LP problems effectively.
+
+## Run the code
+
+It suggestes to use Python>=3.10 to run the code in a virtual python environment.
+
+`
+conda create --name cafa python=3.10
+`
+
+`
+pip install -r requirements.txt
+`
+
+Then, this paper used the [LMStudio](https://lmstudio.ai/) as the LM inference engine, and use the [Llama-index](https://www.llamaindex.ai/) as the interconnect components. After downloading the model weights, loaded into the disk, and start running the server, it is ready to run the code.
+
+The main experiment are run with the Jupyter notebooks in the `notebooks` folder, the files starts with the prefix `e2e_code` are the notebooks for the paper of the CAFA method, Others are the baselines for comparison. 
+
+## Citation
 
 If you found the idea useful in your work, please consider citing our paper:
 ```
