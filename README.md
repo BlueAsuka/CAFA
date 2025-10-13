@@ -10,7 +10,7 @@ The code for the Neurips 2024 MATH-AI workshop paper
 
 This paper proposed a compact prompting for large language models to solve linear programming problems. Instead of using a multi-agent framework with a complex workflow, we guide the LLM to autoformulate the optimization problem in natural lamguage with Python code interfacing to the optimization solvers such as [Gurobi](https://pypi.org/project/gurobipy/) and [CPLEX](https://developers.google.com/optimization/install?_gl=1*avvr0*_up*MQ..*_ga*MTQ4NzU5MzgwNC4xNzYwMzUzNjE3*_ga_SM8HXJ53K2*czE3NjAzNTM2MTYkbzEkZzAkdDE3NjAzNTM2MTYkajYwJGwwJGgw).
 
-The results show that our method can solve the linear programming problems with a comparable accuracy to many multi-agent frameworks such as [Chain-of-Experts](https://openreview.net/pdf?id=HobyL1B9CZ) and [OptiMUS](https://arxiv.org/abs/2310.06116). Interestingly, this CAFA can enable opensource small language models like Llama3.1-8B-Q8 and DeepSeek-Coder-14B-Q4 achieve a significant performance boost in solving linear programming problems compared to that without CAFA.
+The results show that our method can solve the linear programming problems with a comparable accuracy to many multi-agent frameworks such as [Chain-of-Experts](https://openreview.net/pdf?id=HobyL1B9CZ) and [OptiMUS](https://arxiv.org/abs/2310.06116). Interestingly, this CAFA can enable opensource small language models like Llama3.1-8B-Q8 and DeepSeek-Coder-16B-Q4 achieve a significant performance boost in solving linear programming problems compared to that without CAFA.
 
 The following tables shows the accuracy of different methods with various LLMs on the NL4Opt dataset. (The results of CoE and the OptiMUS are from the original papers)
 
