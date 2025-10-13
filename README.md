@@ -16,8 +16,8 @@ The following tables shows the accuracy of different methods with various LLMs o
 
 | Model |standard | Chain-of-Experts | OptiMUS | CAFA |
 | --- | --- | --- | --- | --- |
-|GPT-4 | 47.3% | 64.2% | 78.7% | 70.1% |
-|GPT-3.5-Turbo| 42.4% | 58.9% | __ | 59.0% |
+| GPT-4 | 47.3% | 64.2% | 78.7% | 70.1% |
+| GPT-3.5-Turbo | 42.4% | 58.9% | __ | 59.0% |
 | Llama3.1-8B-Q8 | 5.2% | __ | __ | 34.1% |
 | DeepSeek-Coder-16B-Q4 | 5.5% | __ | __ | 60.1%|
 
