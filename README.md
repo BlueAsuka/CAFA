@@ -1,5 +1,8 @@
 # CAFA
 
+## News
+- [2025.10.13] Use Qwen3-4B-2507-Q8_0 as the LLM model with CAFA achieving 69.79% accuracy on the NLP4Opt dataset with 99.63% successfully rate. The model size is only 4.28 GB which can be runed on many cosumer GPU with over 6 GB VRAM. This shows a promising direction to further develop CAFA for effective LP optimization on the edge efficiently.
+
 ## Introduction
 The code for the Neurips 2024 MATH-AI workshop paper
 
