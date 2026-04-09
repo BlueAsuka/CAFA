@@ -59,7 +59,7 @@ python cafa_1.0/cafa.py --dataset-root benchmarks
 Or run a specific benchmark with the following command:
 
 `
-python cafa_1.0/cafa.py --dataset-root benchmarks datasets NL4Opt
+python cafa_1.0/cafa.py --dataset-root --datasets NL4Opt
 `
 
 The datasets names can be selected from the benchmarks folder.
