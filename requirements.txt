@@ -12,3 +12,4 @@ llama-index-llms-lmstudio
 lmformatenforcer
 tqdm
 loguru
+sympy
