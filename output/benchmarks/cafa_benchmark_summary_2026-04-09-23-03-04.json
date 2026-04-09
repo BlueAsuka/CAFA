@@ -1,0 +1,16 @@
+{
+  "total": 288,
+  "solved": 270,
+  "evaluable": 281,
+  "correct": 193,
+  "accuracy": 0.6868327402135231,
+  "per_dataset": {
+    "NL4Opt": {
+      "total": 288,
+      "solved": 270,
+      "evaluable": 281,
+      "correct": 193,
+      "accuracy": 0.6868327402135231
+    }
+  }
+}
