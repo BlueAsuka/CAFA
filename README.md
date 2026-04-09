@@ -1,6 +1,7 @@
 # CAFA
 
 ## News
+- [2026.04/09] Tidy up the CAFA code from the notebook with runnable scripts in the `cafa_1.0` folder. Also, add the benckmarks from the [LLM4OR](https://llm4or.github.io/LLM4OR/) repo to allow running the CAFA on more datasets.
 - [2025.10.13] Use Qwen3-4B-2507-Q8_0 as the LLM model with CAFA achieving 69.79% accuracy on the NLP4Opt dataset with 99.63% successfully rate. The model size is only 4.28 GB which can be run on many cosumer GPU with over 6 GB VRAM. This shows a promising direction to further develop CAFA for effective LP optimization on the edge efficiently.
 
 ## Introduction
@@ -27,6 +28,8 @@ Thus, CAFA is a prompting stradgy for improving LLMs in different sizes to solve
 
 It suggestes to use Python>=3.10 to run the code in a virtual python environment.
 
+### Reproduce the experiment results in the CAFA paper
+
 `
 conda create --name cafa python=3.10
 `
@@ -38,6 +41,28 @@ pip install -r requirements.txt
 Then, this paper used the [LMStudio](https://lmstudio.ai/) as the LM inference engine, and use the [Llama-index](https://www.llamaindex.ai/) as the interconnect components. After downloading the model weights, loaded into the disk, and start running the server, it is ready to run the code.
 
 The main experiment are run with the Jupyter notebooks in the `notebooks` folder, the files starts with the prefix `e2e_code` are the notebooks for the paper of the CAFA method, Others are the baselines for comparison. 
+
+### Run CAFA on the LLM4OR benchmarks
+
+First download the LLM4OR benchmarks from by running the following command and save the benchmarks in the `benchmarks` folder:
+
+`
+python download_benckmarks.py
+`
+
+Then, run the LMStudio with a specific LLMs, and run the following command to run the CAFA method on the LLM4OR benchmarks:
+
+`
+python cafa_1.0/cafa.py --dataset-root benchmarks 
+`
+
+Or run a specific benchmark with the following command:
+
+`
+python cafa_1.0/cafa.py --dataset-root benchmarks datasets NL4Opt
+`
+
+The datasets names can be selected from the benchmarks folder.
 
 ## Citation
 
