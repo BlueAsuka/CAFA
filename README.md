@@ -21,6 +21,7 @@ The following tables shows the accuracy of different methods with various LLMs o
 | GPT-3.5-Turbo | 42.4% | 58.9% | __ | 59.0% |
 | Llama3.1-8B-Q8 | 5.2% | __ | __ | 34.1% |
 | DeepSeek-Coder-16B-Q4 | 5.5% | __ | __ | 60.1%|
+| Qwen3.0-4B-2507-Q8_0  | __ | __ | __ | 69.79%|
 
 Thus, CAFA is a prompting stradgy for improving LLMs in different sizes to solve LP problems effectively.
 
