@@ -2,12 +2,15 @@ from __future__ import annotations
 
 import logging
 import re
+import sys
 from dataclasses import dataclass
 from typing import Optional
 
 from openai import OpenAI
 from pydantic import BaseModel
+from pathlib import Path
 
+sys.path.append(str(Path(__file__).resolve().parent.parent))
 from benchmark_loader import BenchmarkInstance
 
 

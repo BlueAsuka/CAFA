@@ -7,12 +7,14 @@ import logging
 import math
 import pickle
 import re
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence
 
 import sympy as sp
 
+sys.path.append(str(Path(__file__).resolve().parent.parent))
 from benchmark_loader import BenchmarkInstance, ORBenchmarkLoader
 from lmstudio_client import LMStudioCAFAClient, LMStudioConfig
 
