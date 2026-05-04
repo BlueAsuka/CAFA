@@ -1,13 +1,14 @@
 # CAFA
 
 ## News
-- [2026/04/09] Tidy up the CAFA code from the notebook with runnable scripts in the `cafa_1.0` folder. Also, add the benckmarks from the [LLM4OR](https://llm4or.github.io/LLM4OR/) repo to allow running the CAFA on more datasets.
-- [2025/10/13] Use Qwen3-4B-2507-Q8_0 as the LLM model with CAFA achieving 69.79% accuracy on the NLP4Opt dataset with 99.63% successfully rate. The model size is only 4.28 GB which can be run on many cosumer GPU with over 6 GB VRAM. This shows a promising direction to further develop CAFA for effective LP optimization on the edge efficiently.
+- [04/05/2026] A recent paper, [From Soliloquy to Agora](https://arxiv.org/pdf/2604.25847), applied the CAFA with Gemini-2.5-pro can achieve a near SOTA performance (**92.5%** on a cleaned NL4OPT with 213 samples) to other training-centric and agentic methods with around 250 lines of codes. Details can be found in this [repo](https://github.com/CHIANGEL/Agora-Opt).
+- [09/04/2026] Tidy up the CAFA code from the notebook with runnable scripts in the `cafa_1.0` folder. Also, add the benckmarks from the [LLM4OR](https://llm4or.github.io/LLM4OR/) repo to allow running the CAFA on more datasets.
+- [13/10/2025] Use Qwen3-4B-2507-Q8_0 as the LLM model with CAFA achieving 69.79% accuracy on the NLP4Opt dataset with 99.63% successfully rate. The model size is only 4.28 GB which can be run on many cosumer GPU with over 6 GB VRAM. This shows a promising direction to further develop CAFA for effective LP optimization on the edge efficiently.
 
 ## Introduction
 The code for the Neurips 2024 MATH-AI workshop paper
 
-[Code as Auto-Formulation can boost large language model in solving linear problem](https://openreview.net/forum?id=xC2xtBLmri)
+[CAFA: Code as Auto-Formulation can boost large language model in solving linear problem](https://openreview.net/forum?id=xC2xtBLmri)
 
 This paper proposed a compact prompting for large language models to solve linear programming problems. Instead of using a multi-agent framework with a complex workflow, we guide the LLM to autoformulate the optimization problem in natural lamguage with Python code interfacing to the optimization solvers such as [Gurobi](https://pypi.org/project/gurobipy/) and [CPLEX](https://developers.google.com/optimization/install?_gl=1*avvr0*_up*MQ..*_ga*MTQ4NzU5MzgwNC4xNzYwMzUzNjE3*_ga_SM8HXJ53K2*czE3NjAzNTM2MTYkbzEkZzAkdDE3NjAzNTM2MTYkajYwJGwwJGgw).
 
