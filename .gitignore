@@ -4,3 +4,4 @@
 /.vscode
 /.venv-cafa2
 **/__pycache__/
+configs/.env
