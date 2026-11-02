@@ -354,7 +354,7 @@ class ORBenchmarkLoader:
             if not isinstance(record, dict):
                 continue
             question = record.get("en_question") or record.get("question") or record.get("Question") or ""
-            answer = record.get("en_answer") or record.get("answer") or record.get("Answer")
+            answer = next((record[k] for k in ("en_answer", "answer", "Answer") if record.get(k) is not None), None)
             yield BenchmarkInstance(
                 dataset_name="IndustryOR",
                 instance_id=f"industryor_{idx}",
@@ -389,7 +389,7 @@ class ORBenchmarkLoader:
                 if not isinstance(record, dict):
                     continue
                 question = record.get("question") or record.get("en_question") or ""
-                answer = record.get("results") or record.get("answer")
+                answer = record.get("results") if record.get("results") is not None else record.get("answer")
                 record_idx = record.get("index", idx)
                 yield BenchmarkInstance(
                     dataset_name="ReSocratic",
@@ -412,13 +412,13 @@ class ORBenchmarkLoader:
         if not opt_dir.exists():
             return
 
-        for jsonl_path in sorted(opt_dir.glob("*.jsonl")):
+        for jsonl_path in sorted(opt_dir.rglob("*.jsonl")):
             text = jsonl_path.read_text(encoding="utf-8")
             for idx, record in enumerate(_iter_json_objects(text)):
                 if not isinstance(record, dict):
                     continue
                 question = record.get("Question") or record.get("question") or ""
-                answer = record.get("Answer") or record.get("answer")
+                answer = record.get("Answer") if record.get("Answer") is not None else record.get("answer")
                 yield BenchmarkInstance(
                     dataset_name="Mamo",
                     instance_id=f"{jsonl_path.stem}::{record.get('id', idx)}",

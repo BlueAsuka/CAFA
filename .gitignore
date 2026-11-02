@@ -2,3 +2,5 @@
 /__pycache__
 /benchmarks
 /.vscode
+/.venv-cafa2
+**/__pycache__/

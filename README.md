@@ -66,6 +66,13 @@ python cafa_1.0/cafa.py --dataset-root benchmarks --datasets NL4Opt
 
 The datasets names can be selected from the benchmarks folder.
 
+### CAFA 2.0 with MathOpt
+
+The compact [CAFA 2.0 implementation](cafa_2.0/README.md) generates MathOpt models
+for LP/IP/MILP, with examples covering text and tables. It retains the client-and-runner
+structure of 1.0 and saves prompts, code, model exports, and per-instance results for review.
+See its README for the minimal installation, CLI options, replay, and offline tests.
+
 ## Citation
 
 If you found the idea useful in your work, please consider citing our paper:
