@@ -1,0 +1,19 @@
+{
+  "source": "offline_demo",
+  "seed": 42,
+  "requested_limit": 0,
+  "label_policy": "Unverified source reference / synthetic structural negative; no model execution",
+  "counts": {
+    "seen": 2,
+    "pairs_train": 2,
+    "augmented_train": 4,
+    "ranking_train": 2,
+    "negative_total": 10,
+    "negative_inequality_flip": 2,
+    "negative_rhs_perturb": 2,
+    "negative_constraint_drop": 2,
+    "negative_variable_domain": 2,
+    "negative_objective_flip": 2,
+    "accepted_source": 2
+  }
+}
