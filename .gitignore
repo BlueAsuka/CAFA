@@ -5,4 +5,8 @@
 /.venv-cafa2
 **/__pycache__/
 configs/.env
+<<<<<<< HEAD
 /cafa_2.0/output
+=======
+/output/cafa_2.0
+>>>>>>> e89e52ccab2c3954c9c755c6930582eb83772de8
